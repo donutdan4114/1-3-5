@@ -78,11 +78,12 @@ body * {
 }
 
 .app__section {
-  margin: 15px 0 15px 0;
+  margin: 80px 0 15px 0;
   border: 1px #ddd solid;
   .border-radius(10px);
   padding: 10px;
   .transition(border .2s);
+  opacity: 0;
   &.focused {
     border-color: #555;
   }
@@ -106,6 +107,7 @@ body * {
   width: 100%;
   border: 0;
   outline: 0;
+  opacity: 0;
 }
 
 footer {

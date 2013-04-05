@@ -68,8 +68,12 @@
      * Loads the pre-existing fields from the localStorage.
      */
     load: function() {
+      $('.app__section').each(function(i) {
+        $(this).delay(i * 150).animate({opacity: 1, marginTop: 15}, 800);
+      });
       $('.app__input').each(function(i) {
         $(this).val($.localStorage($(this).attr('id')));
+        $(this).delay(i * 250).animate({opacity: 1}, 1000);
       });
       // Set display from data we got from localStorage.
       app.setDateDisplay($.localStorage('lastSaved'));
