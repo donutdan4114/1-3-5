@@ -80,15 +80,10 @@ body * {
 
 .app__section {
   margin: 80px 0 15px 0;
-  border: 1px #ddd solid;
-  .border-radius(10px);
   padding: 10px;
   .transition(border .2s);
   opacity: 0;
   .clearfix();
-  &.focused {
-    border-color: #555;
-  }
   &:hover {
     .app__section-title {
       color: #333;
@@ -105,7 +100,7 @@ body * {
 
 .app__table {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
   .app__table-checkbox {
     width: 32px;
   }
@@ -124,12 +119,13 @@ body * {
   padding-left: 10px;
   margin: 0;
   -webkit-user-select: all;
+  border-bottom: 1px #ddd solid;
   &:focus {
     color: darken(@color__link, 25%);
+    border-bottom-color: #888;
   }
   &.checked {
-    color: #aaa;
-    text-decoration: line-through;
+    color: #bbb;
   }
 }
 

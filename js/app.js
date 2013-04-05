@@ -79,7 +79,7 @@
     clear: function() {
       // Remove checkbox data.
       $('.app__checkbox').each(function(i) {
-        if($(this).hasClass('checked')){
+        if ($(this).hasClass('checked')) {
           app.toggleCheckbox($(this));
         }
       });
