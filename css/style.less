@@ -88,10 +88,8 @@ body * {
   .transition(border .2s);
   opacity: 0;
   .clearfix();
-  &:hover {
-    .app__section-title {
-      color: #333;
-    }
+  &.focused .app__section-title {
+    color: #333;
   }
 }
 
@@ -120,7 +118,7 @@ body * {
   opacity: 0;
   .transition(color .5s);
   width: 100%;
-  padding-left: 10px;
+  padding-left: 5px;
   margin: 0;
   -webkit-user-select: all;
   border-bottom: 1px #ddd solid;
