@@ -33,15 +33,56 @@
       $('.app__input').on('blur', function() {
         $(this).parents('.app__section').removeClass('focused');
       });
-
+      // Make the checkboxes.
+      app.makeCheckboxes();
       // Load app details from localStorage.
       app.load();
+    },
+
+    /**
+     * Makes the checkboxes...
+     */
+    makeCheckboxes: function() {
+      $('.app__input').each(function(i) {
+        var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox" />')
+        $box.on('click', function(e) {
+          app.toggleCheckbox($(this));
+        });
+        $(this).closest('table').find('.app__table-checkbox').html($box);
+      });
+    },
+
+    /**
+     * Toggles a checkbox to mark a goal as completed.
+     */
+    toggleCheckbox: function($box) {
+      // Make sure the input isn't empty, ya can't finish nothing.
+      if ($box.parents('table').find('.app__input').val() == "") {
+        return;
+      }
+      if ($box.hasClass('checked')) {
+        $box.removeClass('checked');
+        $box.parents('table').find('.app__input').removeClass('checked').attr('readonly', false);
+        $box.attr('title', 'not done');
+        $.localStorage($box.attr('id'), null);
+      } else {
+        $box.addClass('checked');
+        $box.parents('table').find('.app__input').addClass('checked').attr('readonly', true);
+        $box.attr('title', 'completed');
+        $.localStorage($box.attr('id'), true);
+      }
     },
 
     /**
      * Clears input data and localStorage.
      */
     clear: function() {
+      // Remove checkbox data.
+      $('.app__checkbox').each(function(i) {
+        if($(this).hasClass('checked')){
+          app.toggleCheckbox($(this));
+        }
+      });
       // Clear all the inputs.
       $('.app__input').each(function(i) {
         $(this).val("");
@@ -68,13 +109,22 @@
      * Loads the pre-existing fields from the localStorage.
      */
     load: function() {
+      // Animate sections.
       $('.app__section').each(function(i) {
         $(this).delay(i * 150).animate({opacity: 1, marginTop: 15}, 800);
       });
+      // Load input values.
       $('.app__input').each(function(i) {
         $(this).val($.localStorage($(this).attr('id')));
         $(this).delay(i * 250).animate({opacity: 1}, 1000);
       });
+      // Load checkbox values.
+      $('.app__checkbox').each(function(i) {
+        if ($.localStorage($(this).attr('id')) == true) {
+          app.toggleCheckbox($(this));
+        }
+      });
+
       // Set display from data we got from localStorage.
       app.setDateDisplay($.localStorage('lastSaved'));
     },

@@ -8,6 +8,7 @@ body {
 
 body * {
   .box-sizing(border-box);
+  -webkit-user-select: none;
 }
 
 .bold {
@@ -67,13 +68,13 @@ body * {
 
 .app__button {
   padding: 5px 10px 5px 10px;
-  background-color: #666;
-  color: #eee;
+  color: #aaa;
   text-decoration: none;
   .border-radius(7px);
   .transition(background-color .3s);
   &:hover {
-    background-color: #333;
+    color: #999;
+    background-color: #eee;
   }
 }
 
@@ -84,6 +85,7 @@ body * {
   padding: 10px;
   .transition(border .2s);
   opacity: 0;
+  .clearfix();
   &.focused {
     border-color: #555;
   }
@@ -96,21 +98,55 @@ body * {
 
 .app__section-title {
   color: #777;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   .transition(color .3s);
   line-height: 1.5em;
 }
 
+.app__table {
+  width: 100%;
+  margin-bottom: 10px;
+  .app__table-checkbox {
+    width: 32px;
+  }
+  td {
+    vertical-align: top;
+  }
+}
+
 .app__input {
   font-size: 1.4em;
-  margin: 5px 0 5px 0;
-  width: 100%;
   border: 0;
   outline: 0;
   opacity: 0;
   .transition(color .5s);
+  width: 100%;
+  padding-left: 10px;
+  margin: 0;
+  -webkit-user-select: all;
   &:focus {
     color: darken(@color__link, 25%);
+  }
+  &.checked {
+    color: #aaa;
+    text-decoration: line-through;
+  }
+}
+
+.app__checkbox {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border: 3px #ccc solid;
+  cursor: pointer;
+  overflow: hidden;
+  .transition(all .3s);
+  &:hover {
+    border-color: #aaa;
+  }
+  &.checked {
+    border-color: #777;
+    background-color: #777;
   }
 }
 
