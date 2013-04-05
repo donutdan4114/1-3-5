@@ -33,6 +33,7 @@
       $('.app__input').on('blur', function() {
         $(this).parents('.app__section').removeClass('focused');
       });
+
       // Load app details from localStorage.
       app.load();
     },
@@ -100,7 +101,12 @@
         $('.app__date .date').html("").attr('title', '');
         return;
       }
-      $('.app__date .date').attr('title', date).timeago();
+      // Remove existing date.
+      $('.app__date .date').remove();
+      // Create the date element.
+      var $date = $('<span class="date" />').attr('title', date).timeago();
+      // Append that shit.
+      $('.app__date').append($date);
     },
 
     /**
