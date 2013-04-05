@@ -108,6 +108,10 @@ body * {
   border: 0;
   outline: 0;
   opacity: 0;
+  .transition(color .5s);
+  &:focus {
+    color: darken(@color__link, 25%);
+  }
 }
 
 footer {
