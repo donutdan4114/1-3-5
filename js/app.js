@@ -111,7 +111,7 @@
     load: function() {
       // Animate sections.
       $('.app__section').each(function(i) {
-        $(this).delay(i * 150).animate({opacity: 1, marginTop: 15}, 800);
+        $(this).delay(i * 150).animate({opacity: 1, marginTop: 25}, 800);
       });
       // Load input values.
       $('.app__input').each(function(i) {

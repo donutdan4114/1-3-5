@@ -12,7 +12,6 @@ body {
 
 body * {
   .box-sizing(border-box);
-  -webkit-user-select: none;
 }
 
 .bold {
@@ -29,7 +28,7 @@ body * {
 
 .app__wrapper {
   width: 95%;
-  padding: 15px 20px 0px 20px;
+  padding: 5px 5px 0px 5px;
   margin: 10px auto 0 auto;
   max-width: @app__size;
 }
@@ -84,7 +83,6 @@ body * {
 
 .app__section {
   margin: 80px 0 15px 0;
-  padding: 10px;
   .transition(border .2s);
   opacity: 0;
   .clearfix();
@@ -120,7 +118,6 @@ body * {
   width: 100%;
   padding-left: 5px;
   margin: 0;
-  -webkit-user-select: all;
   border-bottom: 1px #ddd solid;
   &:focus {
     color: darken(@color__link, 25%);
