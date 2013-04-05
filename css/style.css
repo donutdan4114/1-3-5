@@ -59,6 +59,12 @@ body * {
     font-size: 4.0em;
   }
 }
+.app__title a {
+  text-decoration: none;
+}
+.app__title a:visited {
+  color: inherit;
+}
 .app__description {
   line-height: 1.4em;
   color: #555555;
