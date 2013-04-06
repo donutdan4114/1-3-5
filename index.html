@@ -13,18 +13,32 @@
 <body class="page-app">
 
 <noscript>
-  <div class="app__warning">Whoops, your JavaScript is disabled. This app cannot save your list without JavaScript enabled.</div>
+  <div class="app__warning">
+    <a title="Learn how to enabled JavaScript for your browser." href="http://www.enable-javascript.com/" target="_blank">
+      Whoops, your JavaScript is disabled. This app cannot save your list without JavaScript enabled.
+    </a>
+  </div>
   <style type="text/css">
+    .app__warning a {
+      text-decoration: none;
+      color: #ddd;
+    }
+
+    .app__warning a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
     .app__section {
       opacity: 1;
       margin-top: 15px;
     }
 
-    #app__clear, .app__date {
+    #app__clear, .app__date, .app__table-checkbox {
       display: none;
     }
 
-    .app__input {
+    .app__input, .app__title, .app__description {
       opacity: 1;
     }
   </style>

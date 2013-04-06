@@ -38,6 +38,7 @@ body * {
   font-size: 2.5em;
   color: @color__title;
   margin-bottom: 20px;
+  opacity: 0;
   .transition(font-size 1.0s);
   @media screen and (min-width: 560px) {
     font-size: 4.0em;
@@ -55,7 +56,8 @@ body * {
 
 .app__description {
   line-height: 1.4em;
-  color: @color__copy;
+  color: #969c84;
+  opacity: 0;
   border-bottom: 1px #ccc dotted;
   padding-bottom: 10px;
 }
@@ -122,6 +124,7 @@ body * {
   padding-left: 5px;
   margin: 0;
   border-bottom: 1px #ddd solid;
+  color: @color__copy;
   &:focus {
     color: darken(@color__link, 25%);
     border-bottom-color: #888;
@@ -151,7 +154,7 @@ body * {
 
 footer {
   margin: auto;
-  padding: 0 0 50px 25px;
+  padding: 10px 0 30px 7px;
   max-width: @app__size;
 }
 

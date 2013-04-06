@@ -18,6 +18,7 @@
      * Initial function to be hit.
      */
     init: function() {
+      app.fadeInHeader();
       app.startSaveTimer();
       // Keyup events on input items.
       app.captureKeyupEvents();
@@ -37,6 +38,20 @@
       app.makeCheckboxes();
       // Load app details from localStorage.
       app.load();
+    },
+
+    /**
+     * Fades in the header only one time.
+     */
+    fadeInHeader: function() {
+      if (!$.localStorage('animatedHeader')) {
+        $('.app__title').animate({opacity: 1}, 2000);
+        $('.app__description').delay(500).animate({opacity: 1}, 2000);
+        $.localStorage('animatedHeader', true);
+      } else {
+        $('.app__title').css({opacity: 1});
+        $('.app__description').css({opacity: 1});
+      }
     },
 
     /**
@@ -111,12 +126,20 @@
     load: function() {
       // Animate sections.
       $('.app__section').each(function(i) {
-        $(this).delay(i * 150).animate({opacity: 1, marginTop: 25}, 800);
+        if (!$.localStorage('animatedSections')) {
+          $(this).delay(i * 150).animate({opacity: 1, marginTop: 25}, 2000);
+        } else {
+          $(this).css({opacity: 1, marginTop: 25});
+        }
       });
       // Load input values.
       $('.app__input').each(function(i) {
         $(this).val($.localStorage($(this).attr('id')));
-        $(this).delay(i * 250).animate({opacity: 1}, 1000);
+        if (!$.localStorage('animatedSections')) {
+          $(this).delay(i * 250).animate({opacity: 1}, 1000);
+        } else {
+          $(this).css({opacity: 1});
+        }
       });
       // Load checkbox values.
       $('.app__checkbox').each(function(i) {
@@ -124,7 +147,7 @@
           app.toggleCheckbox($(this));
         }
       });
-
+      $.localStorage('animatedSections', true);
       // Set display from data we got from localStorage.
       app.setDateDisplay($.localStorage('lastSaved'));
     },
