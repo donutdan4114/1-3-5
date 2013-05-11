@@ -38,6 +38,41 @@
       app.makeCheckboxes();
       // Load app details from localStorage.
       app.load();
+      app.loadMode();
+    },
+
+    /**
+     *  Loads the current mode and attaches event handlers.
+     */
+    loadMode: function() {
+      // Check to see if mode has been set.
+      if ($.localStorage('mode')) {
+        app.setMode($.localStorage('mode'));
+      }
+      // Attach event handlers.
+      $('.app__button--mode').on('click', function(e) {
+        e.preventDefault();
+        $.localStorage('mode', $(this).data('mode'));
+        app.setMode($(this).data('mode'));
+      });
+    },
+
+    /**
+     * Sets the mode and changes the view.
+     */
+    setMode: function(mode) {
+      $('.app__button--mode').removeClass('active');
+      $('.app__button--mode[data-mode="' + mode + '"]').addClass('active');
+      switch(mode) {
+        case "advanced":
+          $('.app__section-title').show(0);
+          $('.app__section').css({marginTop: 25, marginBottom: 15});
+          break;
+        case "simple":
+          $('.app__section-title').hide(0);
+          $('.app__section').css({marginTop: 0, marginBottom: 0});
+          break;
+      }
     },
 
     /**
