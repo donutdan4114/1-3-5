@@ -27,11 +27,25 @@ body * {
   display: none;
 }
 
+.mode-wrapper {
+  float: left;
+  width: 100%;
+  overflow: auto;
+  @media screen and (min-width: 768px) {
+    margin-top: 10px;
+  }
+}
+
 .app__wrapper {
   width: 95%;
   padding: 5px 5px 0px 5px;
   margin: 10px auto 0 auto;
   max-width: @app__size;
+
+  header{
+    overflow: auto;
+    margin-bottom: 10px;
+  }
 }
 
 .app__title {
@@ -39,9 +53,11 @@ body * {
   color: @color__title;
   margin-bottom: 20px;
   opacity: 0;
+  display: none;
   .transition(font-size 1.0s);
-  @media screen and (min-width: 560px) {
+  @media screen and (min-width: 768px) {
     font-size: 4.0em;
+    display: block;
   }
   a {
     text-decoration: none;
@@ -58,8 +74,12 @@ body * {
   line-height: 1.4em;
   color: #969c84;
   opacity: 0;
+  display: none;
   border-bottom: 1px #ccc dotted;
   padding-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 .app__utils {
@@ -75,13 +95,13 @@ body * {
 }
 
 #app__simple, #app__advanced {
-  float: right;
+  float: left;
   position: relative;
   bottom: 5px;
 }
 
 .app__button {
-  padding: 5px 10px 5px 10px;
+  padding: 12px 10px 8px 10px;
   color: #aaa;
   text-decoration: none;
   .transition(background-color .3s);
