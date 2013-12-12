@@ -1,7 +1,14 @@
 CACHE MANIFEST
+# Version 0.1
+
+CACHE:
+index.html
 /js/app.js
 /js/jquery.storage.js
 /css/style.css
 /css/reset.css
 http://code.jquery.com/jquery-1.9.1.min.js
 http://timeago.yarp.com/jquery.timeago.js
+
+NETWORK:
+*
