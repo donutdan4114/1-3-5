@@ -56,6 +56,30 @@
         app.setMode($(this).data('mode'));
       });
     },
+    
+    /**
+     * Sets the sizes of the checkboxes
+     */
+     setCheckboxSize: function() {
+       $('div[id^=app__checkbox-app__input-]').each(function(i) {
+         var id = $(this).attr('id');
+         var first = id.indexOf('-')+1;
+         var second = id.indexOf('-', first)+1;
+         var third = id.indexOf('-', second);
+         var type = id.substr(second, third-second);
+         
+         $(this).addClass('checkbox-size-' + type);
+       });
+     },
+     
+     /**
+     * Removes the difference in sizes of the checkboxes
+     */
+     unsetCheckboxSize: function() {
+       $('div[id^=app__checkbox-app__input-]').removeClass (function (index, css) {
+         return (css.match (/\bcheckbox-size\S+/g) || []).join(' ');
+       });
+     },
 
     /**
      * Sets the mode and changes the view.
@@ -67,10 +91,12 @@
         case "advanced":
           $('.app__section-title').show(0);
           $('.app__section').css({marginTop: 25, marginBottom: 15});
+          app.setCheckboxSize();
           break;
         case "simple":
           $('.app__section-title').hide(0);
           $('.app__section').css({marginTop: 0, marginBottom: 0});
+          app.unsetCheckboxSize();
           break;
       }
     },
@@ -94,12 +120,7 @@
      */
     makeCheckboxes: function() {
       $('.app__input').each(function(i) {
-        var id = $(this).attr('id');
-        var beginning = id.indexOf('-')+1;
-        var end = id.indexOf('-', beginning);
-        var type = id.substr(beginning, end-beginning);
-        
-        var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox checkbox-size-'+type+'" />')
+        var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox" />')
         $box.on('click', function(e) {
           app.toggleCheckbox($(this));
         });
