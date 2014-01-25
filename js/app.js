@@ -94,7 +94,12 @@
      */
     makeCheckboxes: function() {
       $('.app__input').each(function(i) {
-        var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox" />')
+        var id = $(this).attr('id');
+        var beginning = id.indexOf('-')+1;
+        var end = id.indexOf('-', beginning);
+        var type = id.substr(beginning, end-beginning);
+        
+        var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox checkbox-size-'+type+'" />')
         $box.on('click', function(e) {
           app.toggleCheckbox($(this));
         });
