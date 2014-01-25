@@ -172,7 +172,7 @@ body * {
   width: 32px;
 }
 .app__table td {
-  vertical-align: top;
+  vertical-align: bottom;
 }
 .app__input {
   font-size: 1.4em;
