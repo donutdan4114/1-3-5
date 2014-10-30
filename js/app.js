@@ -36,6 +36,7 @@
       });
       // Make the checkboxes.
       app.makeCheckboxes();
+      app.enterToTab();
       // Load app details from localStorage.
       app.load();
       app.loadMode();
@@ -228,6 +229,17 @@
       $('.app__input').on('keyup', function(e) {
         app.needToSave = true;
       });
+    },
+
+    enterToTab: function(){
+      $('input').keydown(function(event) {
+        if(event.which == 13) {
+            event.preventDefault();
+            var element = $('input')[$(this).attr('tabindex')*1 + (event.shiftKey==1 ? -2 : 0)];
+            if(element != undefined)
+              element.focus();
+        }
+      });  
     }
 
   }
