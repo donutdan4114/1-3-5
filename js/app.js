@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
 
-  $(document).on('ready', function() {
+  $(document).on('ready', function () {
     app.init();
   });
 
@@ -17,21 +17,21 @@
     /**
      * Initial function to be hit.
      */
-    init: function() {
+    init: function () {
       app.fadeInHeader();
       app.startSaveTimer();
       // Keyup events on input items.
       app.captureKeyupEvents();
       // Attach clear event to the clear button.
-      $('#app__clear').on('click', function(e) {
+      $('#app__clear').on('click', function (e) {
         e.preventDefault();
         app.clear();
       });
       // Changes border on focus of inputs.
-      $('.app__input').on('focus', function() {
+      $('.app__input').on('focus', function () {
         $(this).parents('.app__section').addClass('focused');
       });
-      $('.app__input').on('blur', function() {
+      $('.app__input').on('blur', function () {
         $(this).parents('.app__section').removeClass('focused');
       });
       // Make the checkboxes.
@@ -44,13 +44,13 @@
     /**
      *  Loads the current mode and attaches event handlers.
      */
-    loadMode: function() {
+    loadMode: function () {
       // Check to see if mode has been set.
       if ($.localStorage('mode')) {
         app.setMode($.localStorage('mode'));
       }
       // Attach event handlers.
-      $('.app__button--mode').on('click', function(e) {
+      $('.app__button--mode').on('click', function (e) {
         e.preventDefault();
         $.localStorage('mode', $(this).data('mode'));
         app.setMode($(this).data('mode'));
@@ -60,10 +60,10 @@
     /**
      * Sets the mode and changes the view.
      */
-    setMode: function(mode) {
+    setMode: function (mode) {
       $('.app__button--mode').removeClass('active');
       $('.app__button--mode[data-mode="' + mode + '"]').addClass('active');
-      switch(mode) {
+      switch (mode) {
         case "advanced":
           $('.app__section-title').show(0);
           $('.app__section').css({marginTop: 25, marginBottom: 15});
@@ -78,7 +78,7 @@
     /**
      * Fades in the header only one time.
      */
-    fadeInHeader: function() {
+    fadeInHeader: function () {
       if (!$.localStorage('animatedHeader')) {
         $('.app__title').animate({opacity: 1}, 2000);
         $('.app__description').delay(500).animate({opacity: 1}, 2000);
@@ -92,10 +92,10 @@
     /**
      * Makes the checkboxes...
      */
-    makeCheckboxes: function() {
-      $('.app__input').each(function(i) {
+    makeCheckboxes: function () {
+      $('.app__input').each(function (i) {
         var $box = $('<div id="app__checkbox-' + $(this).attr('id') + '" class="app__checkbox" />')
-        $box.on('click', function(e) {
+        $box.on('click', function (e) {
           app.toggleCheckbox($(this));
         });
         $(this).closest('table').find('.app__table-checkbox').html($box);
@@ -105,7 +105,7 @@
     /**
      * Toggles a checkbox to mark a goal as completed.
      */
-    toggleCheckbox: function($box) {
+    toggleCheckbox: function ($box) {
       // Make sure the input isn't empty, ya can't finish nothing.
       if ($box.parents('table').find('.app__input').val() == "") {
         return;
@@ -126,15 +126,15 @@
     /**
      * Clears input data and localStorage.
      */
-    clear: function() {
+    clear: function () {
       // Remove checkbox data.
-      $('.app__checkbox').each(function(i) {
+      $('.app__checkbox').each(function (i) {
         if ($(this).hasClass('checked')) {
           app.toggleCheckbox($(this));
         }
       });
       // Clear all the inputs.
-      $('.app__input').each(function(i) {
+      $('.app__input').each(function (i) {
         $(this).val("");
         $.localStorage($(this).attr('id'), null);
       });
@@ -147,8 +147,8 @@
     /**
      * Saves the data if we need to.
      */
-    startSaveTimer: function() {
-      setInterval(function() {
+    startSaveTimer: function () {
+      setInterval(function () {
         if (app.needToSave) {
           app.save();
         }
@@ -158,9 +158,9 @@
     /**
      * Loads the pre-existing fields from the localStorage.
      */
-    load: function() {
+    load: function () {
       // Animate sections.
-      $('.app__section').each(function(i) {
+      $('.app__section').each(function (i) {
         if (!$.localStorage('animatedSections')) {
           $(this).delay(i * 150).animate({opacity: 1, marginTop: 25}, 2000);
         } else {
@@ -168,7 +168,7 @@
         }
       });
       // Load input values.
-      $('.app__input').each(function(i) {
+      $('.app__input').each(function (i) {
         $(this).val($.localStorage($(this).attr('id')));
         if (!$.localStorage('animatedSections')) {
           $(this).delay(i * 250).animate({opacity: 1}, 1000);
@@ -177,7 +177,7 @@
         }
       });
       // Load checkbox values.
-      $('.app__checkbox').each(function(i) {
+      $('.app__checkbox').each(function (i) {
         if ($.localStorage($(this).attr('id')) == true) {
           app.toggleCheckbox($(this));
         }
@@ -190,10 +190,10 @@
     /**
      * Saves the data in the mysterious localStorage.
      */
-    save: function() {
+    save: function () {
 
       // For each input, save to localStorage.
-      $('.app__input').each(function(i) {
+      $('.app__input').each(function (i) {
         $.localStorage($(this).attr('id'), $(this).val());
       });
 
@@ -208,7 +208,7 @@
     /**
      * Sets the date display.
      */
-    setDateDisplay: function(date) {
+    setDateDisplay: function (date) {
       if (!date) {
         $('.app__date .date').html("").attr('title', '');
         return;
@@ -224,8 +224,8 @@
     /**
      * Let's the system know we should save.
      */
-    captureKeyupEvents: function() {
-      $('.app__input').on('keyup', function(e) {
+    captureKeyupEvents: function () {
+      $('.app__input').on('keyup', function (e) {
         app.needToSave = true;
       });
     }

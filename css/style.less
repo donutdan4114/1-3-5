@@ -42,7 +42,7 @@ body * {
   margin: 10px auto 0 auto;
   max-width: @app__size;
 
-  header{
+  header {
     overflow: auto;
     margin-bottom: 10px;
   }
@@ -56,7 +56,7 @@ body * {
   display: none;
   .transition(font-size 1.0s);
   @media screen and (min-width: 768px) {
-    font-size: 4.0em;
+    font-size: 3.0em;
     display: block;
   }
   a {
@@ -96,6 +96,12 @@ body * {
 
 #app__simple, #app__advanced {
   float: left;
+  position: relative;
+  bottom: 5px;
+}
+
+#app__upgrade {
+  float: right;
   position: relative;
   bottom: 5px;
 }
@@ -204,4 +210,71 @@ footer a {
   width: 100%;
   text-align: center;
   font-size: .9em;
+}
+
+#app__upgrade {
+  color: limegreen;
+}
+
+#mc_embed_signup {
+  margin-top: 50px;
+  line-height: 1.4em;
+  .mailchimp-form {
+    padding: 0;
+  }
+  a {
+    .app__link();
+  }
+  input[type="email"], input[type="text"] {
+    font-size: 16px;
+    padding: 2px 0 2px 5px;
+  }
+  p {
+    color: @color__copy;
+    margin-bottom: 10px;
+  }
+  strong {
+    color: limegreen;
+  }
+  .signup-title {
+    color: #888;
+    font-weight: normal;
+  }
+}
+
+.featured {
+  margin: auto;
+  width: 275px;
+  p {
+    color: #999;
+    margin-bottom: 10px;
+  }
+  a {
+    display: inline-block;
+    font-size: 0;
+    width: 49%;
+    margin: 0;
+    padding: 5px;
+    &:hover img {
+      opacity: .4;
+    }
+  }
+  img {
+    .transition(all .2s);
+    opacity: .2;
+    width: 100%;
+  }
+}
+
+.copyright {
+  border-top: 1px dotted #ccc;
+  color: #aaa;
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px 0 15px 0;
+  font-size: .8em;
+  a {
+    text-decoration: none;
+    color: #aaa;
+  }
 }

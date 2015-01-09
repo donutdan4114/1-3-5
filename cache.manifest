@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Version 0.1
+# Version 0.2
 
 CACHE:
 index.html
@@ -7,8 +7,13 @@ index.html
 /js/jquery.storage.js
 /css/style.css
 /css/reset.css
+/images/themuse-logo.png
+/images/entrepreneur-logo.png
 http://code.jquery.com/jquery-1.9.1.min.js
 http://timeago.yarp.com/jquery.timeago.js
+http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin
+http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js
+http://www.google-analytics.com/analytics.js
 
 NETWORK:
 *
