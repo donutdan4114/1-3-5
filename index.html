@@ -14,12 +14,15 @@
   <link href="favicon-kaishiro.ico" rel="shortcut icon" type="image/x-icon"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript">
+    alert('We\'ve launched the new version of 135 List. Please sign up at http://135list.com. This website will be turned off on August 31st.');
+  </script>
   <script>
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
       a = s.createElement(o),
         m = s.getElementsByTagName(o)[0];
       a.async = 1;
@@ -65,10 +68,11 @@
   </style>
 </noscript>
 
-<div class="before-header" style="background-color:#c13500;text-align: center;line-height:1.4em;font-size:0.8em;padding:4px;">
-  <a href="/upgrade.html" style="color:white; text-decoration: none;">
-    We've been hard at work making a brand new app. Subscribe to the beta program to access the new app.
-  </a>
+<div class="before-header"
+     style="background-color:#c13500;text-align: center;line-height:1.4em;font-size:1.0em;padding:4px; color: white;">
+  We've launched the new version of 135 List. Please <a href="http://135list.com" target="_blank" style="color:white">sign-up
+  today</a> to
+  continue using your lists.
 </div>
 
 <div class="app__wrapper">
@@ -87,7 +91,6 @@
       <a href="#mode=simple" data-mode="simple" tabindex="-1" id="app__simple" class="app__button app__button--mode">simple</a>
       <a href="#mode=advanced" data-mode="advanced" tabindex="-1" id="app__advanced"
          class="app__button app__button--mode active">advanced</a>
-      <a href="/upgrade.html" tabindex="-1" id="app__upgrade" class="app__button">upgrade</a>
     </div>
   </header>
 
@@ -98,7 +101,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=1 type="text" id="app__input-big-1" class="app__input"/>
+          <input tabindex=1 type="text" id="app__input-big-1" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -111,7 +114,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=2 type="text" id="app__input-mid-1" class="app__input"/>
+          <input tabindex=2 type="text" id="app__input-mid-1" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -119,7 +122,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=3 type="text" id="app__input-mid-2" class="app__input"/>
+          <input tabindex=3 type="text" id="app__input-mid-2" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -127,7 +130,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=4 type="text" id="app__input-mid-3" class="app__input"/>
+          <input tabindex=4 type="text" id="app__input-mid-3" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -140,7 +143,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=5 type="text" id="app__input-small-1" class="app__input"/>
+          <input tabindex=5 type="text" id="app__input-small-1" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -148,7 +151,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=6 type="text" id="app__input-small-2" class="app__input"/>
+          <input tabindex=6 type="text" id="app__input-small-2" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -156,7 +159,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=7 type="text" id="app__input-small-3" class="app__input"/>
+          <input tabindex=7 type="text" id="app__input-small-3" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -164,7 +167,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=8 type="text" id="app__input-small-4" class="app__input"/>
+          <input tabindex=8 type="text" id="app__input-small-4" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -172,7 +175,7 @@
       <tr>
         <td class="app__table-checkbox"></td>
         <td class="app__table-input">
-          <input tabindex=9 type="text" id="app__input-small-5" class="app__input"/>
+          <input tabindex=9 type="text" id="app__input-small-5" class="app__input" readonly="readonly"/>
         </td>
       </tr>
     </table>
@@ -207,7 +210,7 @@
   (function () {
     var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.type = 'text/javascript';
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];

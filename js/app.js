@@ -112,12 +112,12 @@
       }
       if ($box.hasClass('checked')) {
         $box.removeClass('checked');
-        $box.parents('table').find('.app__input').removeClass('checked').attr('readonly', false);
+        //$box.parents('table').find('.app__input').removeClass('checked').attr('readonly', false);
         $box.attr('title', 'not done');
         $.localStorage($box.attr('id'), null);
       } else {
         $box.addClass('checked');
-        $box.parents('table').find('.app__input').addClass('checked').attr('readonly', true);
+        //$box.parents('table').find('.app__input').addClass('checked').attr('readonly', true);
         $box.attr('title', 'completed');
         $.localStorage($box.attr('id'), true);
       }
